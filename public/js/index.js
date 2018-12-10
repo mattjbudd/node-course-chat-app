@@ -23,7 +23,7 @@ socket.on('newMessage', function(message) {
 socket.on('newLocationMessage', function(message) {
   var formattedTime = moment(message.createdAt).format('h:mm a');
   var template = jQuery('#location-message-template').html();
-  var html = Mustach.render(template, {
+  var html = Mustache.render(template, {
     url: message.url,
     from: message.from,
     createdAt: formattedTime
@@ -61,7 +61,7 @@ locationButton.on('click', function() {
     });
     console.log(position);
   }, function() {
-    locationButton.removeAttr('disabled').text('Sending location...');
+    locationButton.removeAttr('disabled').text('Sending location');
     alert('Unable to fetch location.');
   });
 });
